@@ -2,14 +2,16 @@ package Stacks;
 
 import java.util.Arrays;
 
-public class Stacks {
+public class MinStack {
     private int[] items = new int[5];
-    int count = 0;
+    private int count = 0;
+    private int min = Integer.MAX_VALUE;
 
-    void push(int item) {
+    public void push(int item) {
         if (count == items.length)
             throw new StackOverflowError();
-
+        if (item < min)
+            min = item;
         items[count++] = item;
     }
 
@@ -19,6 +21,9 @@ public class Stacks {
         return items[--count];
     }
 
+    public int min() {
+        return min;
+    }
     public int peek() {
         if (count == 0)
             throw new IllegalArgumentException();

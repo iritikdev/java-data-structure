@@ -2,10 +2,14 @@ package Stacks;
 
 public class Main {
     public static void main(String[] args) {
-        var stack = new Stacks();
+        var stack = new MinStack();
         stack.push(10);
-        stack.push(20);
-        stack.push(30);
+        stack.push(2);
+        stack.push(0);
+        stack.pop();
+        System.out.println(stack.min());
+        
+
         System.out.println(stack.toString()); 
        
     }
